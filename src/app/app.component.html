@@ -1,3 +1,19 @@
+<h1>NgModel</h1>
+<p>Nombre {{ person.name }}</p>
+<!--
+  #variable
+  Con esto generamos una variable que nos permitira usar el input con NgModel
+ -->
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
+<!--
+  Aqui usamos la variable nameInput, y accedemos a la propiedad valid, cortesia de NgModel
+ -->
+<p>Name Valid: {{ nameInput.valid }}</p>
+<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age" />
+<p>Age Valid: {{ ageInput.valid }}</p>
+
+<hr>
+
 <h1>Eventos</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
