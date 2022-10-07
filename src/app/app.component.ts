@@ -13,6 +13,13 @@ export class AppComponent {
   age: number = 18;
   img: string = 'https://source.unsplash.com/random';
   btnDisabled = false;
+
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  };
+
   person = {
     name: 'Nicolas',
     age: 18,
@@ -99,5 +106,9 @@ export class AppComponent {
 
   deleteTask(index: number) {
     this.taskList.splice(index, 1);
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 }
