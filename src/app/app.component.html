@@ -27,7 +27,7 @@
 <hr>
 
 <h1>*ngFor Objs</h1>
-<div class="products__container">
+<div class="products--grid">
   <div *ngFor="let product of products">
     <img width="250" [src]="product.image" alt="image">
     <h2>$ {{ product.price }} MXN</h2>
@@ -116,4 +116,4 @@
 <h2>{{ 'Hola mundo'.repeat(5).toLocaleUpperCase() }}</h2>
 <p>3 + 3 = {{ 3 + 3 }}</p>
 <p>Hola, soy {{ name }} y tengo {{ age }}</p>
-<img src={{img}} alt="image">
+<img src={{img}} alt="image" width="200">
