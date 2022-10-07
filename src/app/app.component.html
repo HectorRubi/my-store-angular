@@ -1,3 +1,13 @@
+<h1>*ngIf</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<p *ngIf="nameInput2.valid && person.name == 'Nicolas'; else elseBlock">El input es valido y es nicolas</p>
+<ng-template #elseBlock>
+  <p *ngIf="nameInput2.valid">El input es valido</p>
+  <p *ngIf="!nameInput2.valid">El input no es valido</p>
+</ng-template>
+
+<hr>
+
 <h1>NgModel</h1>
 <p>Nombre {{ person.name }}</p>
 <!--
