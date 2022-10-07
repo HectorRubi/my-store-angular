@@ -5,6 +5,25 @@
   background-color: red;
 }
 
+.styles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.message-error {
+  background-color: red;
+  color: white;
+  opacity: 0;
+  transition: all linear .5s;
+  -webkit-transition: all linear .5s;
+  -moz-transition: all linear .5s;
+  -ms-transition: all linear .5s;
+  -o-transition: all linear .5s;
+  &.invalid {
+    opacity: 1;
+  }
+}
+
 .products--grid {
   display: flex;
   flex-direction: column;

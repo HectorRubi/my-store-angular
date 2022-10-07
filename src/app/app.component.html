@@ -1,3 +1,24 @@
+<h1>Class & Style Binding</h1>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p class="message-error" [class.invalid]="nameInput3.invalid">
+  El campo es requerido
+</p>
+
+<label [style.font-style]="nameInput4.invalid ? 'italic' : 'normal'">Nombre</label>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="nameInput4.invalid ? 'italic' : 'normal'">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores cumque blanditiis dicta ducimus illo reprehenderit impedit, deleniti commodi temporibus voluptate consequuntur tenetur ex, labore consequatur minus eveniet quis cum optio.</p>
+
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="widthImg" />
+  </div>
+  <div>
+    <img [style.width.px]="widthImg" [src]="img" alt="image">
+  </div>
+</div>
+
+<hr>
+
 <h1>[ngSwitch]</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
