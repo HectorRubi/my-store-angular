@@ -1,3 +1,29 @@
+<h1>Ejercicio ngFor | Todo List</h1>
+<input type="text" required [(ngModel)]="newTask" />
+<button (click)="addTask()">Agregar</button>
+<ol>
+  <p *ngIf="taskList.length === 0">Terminaste tus deberes</p>
+  <li *ngFor="let task of taskList; index as i">
+    <button (click)="deleteTask(i)">Done</button>
+    {{ task }}
+  </li>
+</ol>
+
+<hr>
+
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" />
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngIf="names.length === 0">No hay nombres</li>
+  <li *ngFor="let name of names; index as i">
+    {{ i }} {{ name }}
+    <button (click)="deleteName(i)">Delete</button>
+  </li>
+</ul>
+
+<hr>
+
 <h1>*ngIf</h1>
 <input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
 <p *ngIf="nameInput2.valid && person.name == 'Nicolas'; else elseBlock">El input es valido y es nicolas</p>
