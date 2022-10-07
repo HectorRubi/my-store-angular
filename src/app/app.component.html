@@ -1,3 +1,14 @@
+<h1>*ngFor Objs</h1>
+<div class="products__container">
+  <div *ngFor="let product of products">
+    <img width="250" [src]="product.image" alt="image">
+    <h2>$ {{ product.price }} MXN</h2>
+    <p>{{ product.name }}</p>
+  </div>
+</div>
+
+<hr>
+
 <h1>Ejercicio ngFor | Todo List</h1>
 <input type="text" required [(ngModel)]="newTask" />
 <button (click)="addTask()">Agregar</button>
