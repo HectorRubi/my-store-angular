@@ -1,23 +1,55 @@
 <h1>Formulario</h1>
-<form (ngSubmit)="onRegister()" #myForm="ngForm">
-  <div class="input-group">
-    <label for="name">Nombre: </label>
-    <input type="text" required id="name" name="name" [(ngModel)]="register.name" />
-    <p>Mensajes de error</p>
-  </div>
+<form (ngSubmit)="onRegister()" #myForm="ngForm" autocomplete="off">
+  <div class="form-container">
+    <div class="input-group">
+      <label for="name">
+        Nombre:
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        #nameData="ngModel"
+        [(ngModel)]="register.name"
+        [class.error]="nameData.invalid"
+      />
+      <p [class.active]="nameData.invalid">Debes ingresar tu nombre</p>
+    </div>
 
-  <div class="input-group">
-    <label for="emai">Email: </label>
-    <input type="email" required id="email" name="email" [(ngModel)]="register.email" />
-    <p>Mensajes de error</p>
-  </div>
+    <div class="input-group">
+      <label for="email">
+        Email:
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        #emailData="ngModel"
+        [(ngModel)]="register.email"
+        [class.error]="emailData.invalid"
+      />
+      <p [class.active]="emailData.invalid">Mensajes de error</p>
+    </div>
 
-  <div class="input-group">
-    <label for="password">Password: </label>
-    <input type="password" required id="password" name="password" [(ngModel)]="register.password" />
-    <p>Mensajes de error</p>
+    <div class="input-group">
+      <label for="password">
+        Password:
+      </label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        #passwordData="ngModel"
+        [(ngModel)]="register.password"
+        [class.error]="passwordData.invalid"
+      />
+      <p [class.active]="passwordData.invalid">Mensajes de error</p>
+    </div>
+    <button [disabled]="myForm.invalid" type="submit">Registrar</button>
   </div>
-  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
 </form>
 
 <hr>

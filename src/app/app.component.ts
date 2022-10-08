@@ -15,9 +15,9 @@ export class AppComponent {
   btnDisabled = false;
 
   register = {
-    name: '',
-    email: '',
-    password: '',
+    name: 'Nicolas',
+    email: 'lorem@lorem.com',
+    password: '12345',
   };
 
   person = {
