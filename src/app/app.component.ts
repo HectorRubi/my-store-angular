@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  imgParent = '';
+  imgParent = 'https://picsum.photos/200';
+
+  onLoaded(img: string) {
+    console.log('log padre', img);
+  }
 }

@@ -1,4 +1,10 @@
-<img width="200" [src]="img" *ngIf="img; else elseImg">
+<img
+  width="200"
+  [src]="img"
+  (error)="imgError()"
+  (load)="imgLoaded()"
+  *ngIf="img; else elseImg"
+/>
 <ng-template #elseImg>
-  <img src="https://raw.githubusercontent.com/platzi/angular-componentes/2-step/src/assets/images/default.png" alt="">
+  <img [src]="imageDefault" alt="">
 </ng-template>
