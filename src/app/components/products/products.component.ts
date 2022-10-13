@@ -45,11 +45,18 @@ export class ProductsComponent implements OnInit {
       price: 3434,
       image: 'https://raw.githubusercontent.com/platzi/angular-fundamentals/10-step/src/assets/images/glasses.jpg'
     }
-  ]
+  ];
+  myShoppingCart: Product[] = [];
+  total = 0;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onAddToShoppingCart(product: Product) {
+    this.myShoppingCart.push(product);
+    this.total = this.myShoppingCart.reduce((sum, item) => sum + item.price, 0);
   }
 
 }
