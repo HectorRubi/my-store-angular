@@ -11,9 +11,15 @@ export class NavComponent implements OnInit {
   iconLogo = 'https://raw.githubusercontent.com/platzi/angular-componentes/4e39fb3cb8b9287318072def140d6b6282603993/src/assets/svg/logo_yard_sale.svg';
   iconShoppingCart = 'https://raw.githubusercontent.com/platzi/angular-componentes/4e39fb3cb8b9287318072def140d6b6282603993/src/assets/svg/icon_shopping_cart.svg';
 
+  activeMenu = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleMenu() {
+    this.activeMenu = !this.activeMenu;
   }
 
 }
