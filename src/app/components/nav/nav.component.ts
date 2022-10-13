@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { StoreService } from "../../services/store.service";
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -12,10 +14,16 @@ export class NavComponent implements OnInit {
   iconShoppingCart = 'https://raw.githubusercontent.com/platzi/angular-componentes/4e39fb3cb8b9287318072def140d6b6282603993/src/assets/svg/icon_shopping_cart.svg';
 
   activeMenu = false;
+  counter = 0;
 
-  constructor() { }
+  constructor(
+    private storeService: StoreService
+  ) { }
 
   ngOnInit(): void {
+    this.storeService.myCart$.subscribe(products => {
+      this.counter = products.length;
+    });
   }
 
   toggleMenu() {
