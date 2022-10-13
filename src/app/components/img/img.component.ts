@@ -22,7 +22,6 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   @Input('img')
   set changeImg(newImg: string) {
     this.img = newImg;
-    // code
     console.log('change just img =>', this.img);
   }
 
@@ -30,8 +29,8 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   @Output() loaded = new EventEmitter<string>();
 
   imageDefault = 'https://raw.githubusercontent.com/platzi/angular-componentes/2-step/src/assets/images/default.png';
-  counter = 0;
-  counterFn: number | undefined;
+  // counter = 0;
+  // counterFn: number | undefined;
 
   constructor() {
     // before - during render
@@ -50,10 +49,10 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // before render
     // async - fetch, etc. - once time
     console.log('ngOnInit', 'imgValue => ', this.img);
-    this.counterFn = window.setInterval(() => {
-      this.counter += 1;
-      console.log('run counter');
-    }, 1000);
+    // this.counterFn = window.setInterval(() => {
+    //   this.counter += 1;
+    //   console.log('run counter');
+    // }, 1000);
   }
 
   ngAfterViewInit(): void {
@@ -65,7 +64,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   ngOnDestroy(): void {
     // delete component
     console.log('ngOnDestroy');
-    window.clearInterval(this.counterFn);
+    // window.clearInterval(this.counterFn);
   }
 
   imgError() {
