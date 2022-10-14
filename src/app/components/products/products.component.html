@@ -8,8 +8,16 @@
   ></app-product>
 </div>
 <div class="product-detail" [class.active]="showProductDetail">
-  <div>
+  <div *ngIf="productChosen">
     <button (click)="toggleProductDetail()">Close</button>
-    contenido
+    <h3>{{ productChosen.title }}</h3>
+    <swiper
+      [slidesPerView]="1"
+    >
+      <ng-template swiperSlide *ngFor="let image of productChosen.images">
+        <img [src]="image" alt="">
+      </ng-template>
+    </swiper>
+    <p>{{ productChosen.description }}</p>
   </div>
 </div>
