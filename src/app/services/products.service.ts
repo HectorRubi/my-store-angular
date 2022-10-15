@@ -28,7 +28,11 @@ export class ProductsService {
     return this.http.post<Product>(`${this.apiUrl}${this.apiRoutes.products}`, dto);
   }
 
-  update(id :string, dto: UpdateProductDTO) {
+  update(id: string, dto: UpdateProductDTO) {
     return this.http.put<Product>(`${this.apiUrl}${this.apiRoutes.products}/${id}`, dto);
+  }
+
+  delete(id: string) {
+    return this.http.delete<boolean>(`${this.apiUrl}${this.apiRoutes.products}/${id}`);
   }
 }
