@@ -9,7 +9,7 @@ import { CreateProductDTO, Product, UpdateProductDTO } from '../models/product.m
 })
 export class ProductsService {
 
-  private apiUrl = 'https://young-sands-07814.herokupppapp.com/api';
+  private apiUrl = '/api';
   private apiRoutes = {
     products: '/products',
   };
