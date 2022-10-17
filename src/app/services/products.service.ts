@@ -4,12 +4,14 @@ import { retry } from "rxjs/operators";
 
 import { CreateProductDTO, Product, UpdateProductDTO } from '../models/product.model';
 
+import { environment } from "../../environments/environment";
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  private apiUrl = '/api';
+  private apiUrl = `${environment.API_URL}/api`;
   private apiRoutes = {
     products: '/products',
   };
