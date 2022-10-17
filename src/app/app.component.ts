@@ -11,10 +11,11 @@ import { UsersService } from './services/users.service';
 export class AppComponent {
   imgParent = 'https://picsum.photos/200';
   showImg = true;
+  token = '';
 
   constructor(
     private authService: AuthService,
-    private usersService: UsersService,
+    private usersService: UsersService
   ) { }
 
   onLoaded(img: string) {
@@ -39,7 +40,14 @@ export class AppComponent {
   login() {
     this.authService.login('chiop@mailito.com', 'qwerty12345')
     .subscribe(rta => {
-      console.log(rta.access_token);
+      this.token = rta.access_token;
+    });
+  }
+
+  getProfile() {
+    this.authService.profile(this.token)
+    .subscribe(profile => {
+      console.log(profile);
     });
   }
 }
