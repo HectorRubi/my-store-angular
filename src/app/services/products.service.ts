@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
+import { retry } from "rxjs/operators";
+
 import { CreateProductDTO, Product, UpdateProductDTO } from '../models/product.model';
 
 @Injectable({
@@ -7,7 +9,7 @@ import { CreateProductDTO, Product, UpdateProductDTO } from '../models/product.m
 })
 export class ProductsService {
 
-  private apiUrl = 'https://young-sands-07814.herokuapp.com/api';
+  private apiUrl = 'https://young-sands-07814.herokupppapp.com/api';
   private apiRoutes = {
     products: '/products',
   };
@@ -22,7 +24,10 @@ export class ProductsService {
       params = params.set('limit', limit);
       params = params.set('offset', offset);
     }
-    return this.http.get<Product[]>(`${this.apiUrl}${this.apiRoutes.products}`, { params });
+    return this.http.get<Product[]>(`${this.apiUrl}${this.apiRoutes.products}`, { params })
+    .pipe(
+      retry(3)
+    );
   }
 
   get(id: string) {
