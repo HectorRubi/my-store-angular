@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreService } from "../../services/store.service";
 import { AuthService } from "../../services/auth.service";
 import { UsersService } from "../../services/users.service";
+import { TokenService } from "../../services/token.service";
 
 import { User } from 'src/app/models/user.model';
 
@@ -19,7 +20,6 @@ export class NavComponent implements OnInit {
 
   activeMenu = false;
   counter = 0;
-  token = '';
   profile: User = {
     id: '',
     email: '',
@@ -44,15 +44,7 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-    this.authService.login('chiop@mailito.com', 'qwerty12345')
-    .subscribe(rta => {
-      this.token = rta.access_token;
-      this.getProfile();
-    });
-  }
-
-  getProfile() {
-    this.authService.profile(this.token)
+    this.authService.loginAndGet('chiop@mailito.com', 'qwerty12345')
     .subscribe(profile => {
       this.profile = profile;
     });

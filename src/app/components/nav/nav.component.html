@@ -34,7 +34,8 @@
     </nav>
     <div class="info">
       <div class="account">
-        <button *ngIf="!token; else elseBlock" (click)="login()">Login</button>
+        <button *ngIf="!profile.email" (click)="createUser()">Create User</button>
+        <button *ngIf="!profile.email; else elseBlock" (click)="login()">Login</button>
         <ng-template #elseBlock>
           {{ profile.email }}
         </ng-template>
