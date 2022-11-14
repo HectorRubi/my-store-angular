@@ -14,6 +14,10 @@ import { ProductsService } from "../../services/products.service";
 export class ProductsComponent {
 
   @Input() products: Product[] = [];
+  @Input()
+  set productId(id: string | null) {
+    this.onShowDetail(id);
+  }
   @Output() loadMore = new EventEmitter<void>();
 
   myShoppingCart: Product[] = [];
@@ -44,17 +48,20 @@ export class ProductsComponent {
     this.total = this.storeService.getTotal();
   }
 
-  onShowDetail(id: string) {
-    this.statusDetail = 'loading'
-    this.showProductDetail = true;
-    this.productService.get(id)
-    .subscribe(data => {
-      this.productChosen = data;
-      this.statusDetail = 'success';
-    }, errorMsg => {
-      window.alert(errorMsg);
-      this.statusDetail = 'error';
-    });
+  onShowDetail(id: string | null) {
+    this.showProductDetail = false;
+    if (id) {
+      this.statusDetail = 'loading'
+      this.showProductDetail = true;
+      this.productService.get(id)
+      .subscribe(data => {
+        this.productChosen = data;
+        this.statusDetail = 'success';
+      }, errorMsg => {
+        window.alert(errorMsg);
+        this.statusDetail = 'error';
+      });
+    }
   }
 
   readAndUpdate(id: string) {
