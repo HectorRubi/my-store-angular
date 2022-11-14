@@ -15,11 +15,21 @@ export class ProductsService {
   private apiUrl = `${environment.API_URL}/api`;
   private apiRoutes = {
     products: '/products',
+    category: '/categories',
   };
 
   constructor(
     private http: HttpClient
   ) { }
+
+  getByCategory(categoryId: string, limit?: number, offset?: number) {
+    let params = new HttpParams();
+    if (limit && offset != null) {
+      params = params.set('limit', limit);
+      params = params.set('offset', offset);
+    }
+    return this.http.get<Product[]>(`${this.apiUrl}${this.apiRoutes.category}/${categoryId}${this.apiRoutes.products}`, { params });
+  }
 
   getAll(limit?: number, offset?: number) {
     let params = new HttpParams();
@@ -27,7 +37,7 @@ export class ProductsService {
       params = params.set('limit', limit);
       params = params.set('offset', offset);
     }
-    return this.http.get<Product[]>(`${this.apiUrl}${this.apiRoutes.products}`, { params, context: checkTime() })
+    return this.http.get<Product[]>(`${this.apiUrl}${this.apiRoutes.products}`, { params })
     .pipe(
       retry(3),
       map(products => products.map(product => {

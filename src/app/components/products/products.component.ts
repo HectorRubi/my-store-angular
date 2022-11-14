@@ -14,7 +14,7 @@ import { ProductsService } from "../../services/products.service";
 export class ProductsComponent {
 
   @Input() products: Product[] = [];
-  @Output() loadProducts = new EventEmitter<void>();
+  @Output() loadMore = new EventEmitter<void>();
 
   myShoppingCart: Product[] = [];
   total = 0;
@@ -117,7 +117,7 @@ export class ProductsComponent {
   }
 
   onLoadMore() {
-    this.loadProducts.emit();
+    this.loadMore.emit();
   }
 
 }
