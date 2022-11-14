@@ -45,7 +45,7 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'not-found',
+    path: '**',
     component: NotFoundComponent
   },
 ];
