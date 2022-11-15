@@ -34,9 +34,16 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.storeService.myCart$.subscribe(products => {
+    this.storeService.myCart$
+    .subscribe(products => {
       this.counter = products.length;
     });
+
+    this.authService.user$
+    .subscribe(data => {
+      this.profile = data;
+    });
+
     this.getAllCategories();
   }
 
@@ -46,8 +53,8 @@ export class NavComponent implements OnInit {
 
   login() {
     this.authService.loginAndGet('chiop@mailito.com', 'qwerty12345')
-    .subscribe(profile => {
-      this.profile = profile;
+    .subscribe(() => {
+      this.router.navigate(['/profile']);
     });
   }
 
