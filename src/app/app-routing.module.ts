@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { LayoutComponent } from './website/components/layout/layout.component';
 import { HomeComponent } from './website/pages/home/home.component';
 import { NotFoundComponent } from './website/pages/not-found/not-found.component';
 import { CategoryComponent } from './website/pages/category/category.component';
@@ -14,40 +15,46 @@ import { ProductDetailComponent } from './website/pages/product-detail/product-d
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'category/:id',
-    component: CategoryComponent
-  },
-  {
-    path: 'product/:id',
-    component: ProductDetailComponent
-  },
-  {
-    path: 'my-cart',
-    component: MyCartComponent
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent
-  },
-  {
-    path: 'recovery',
-    component: RecoveryComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'category/:id',
+        component: CategoryComponent
+      },
+      {
+        path: 'product/:id',
+        component: ProductDetailComponent
+      },
+      {
+        path: 'my-cart',
+        component: MyCartComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'recovery',
+        component: RecoveryComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+    ]
   },
   {
     path: '**',
