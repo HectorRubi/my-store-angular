@@ -54,6 +54,7 @@ export class NavComponent implements OnInit {
       name: 'chip',
       email: 'chiop@mailito.com',
       password: 'qwerty12345',
+      role: 'customer',
     })
     .subscribe(rta => {
       console.log(rta);
