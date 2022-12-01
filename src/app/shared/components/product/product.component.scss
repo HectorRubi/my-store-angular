@@ -1,3 +1,82 @@
-h2, p {
-  margin: 0;
+.card {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1em;
+  transition: all 400ms ease;
+
+  &:hover {
+    box-shadow: 0 5px 10px #d4d4d4;
+    transform: translateY(-5px);
+  }
+
+  .content {
+    padding: 1em;
+
+    .two-columns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1em;
+      font-size: 1.2em;
+
+      .price {
+        font-weight: bold;
+      }
+    }
+
+    .desc {
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      margin-bottom: 1em;
+      font-size: 0.9em;
+      color: #4E4C55;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      font-style: normal;
+
+      .button {
+        display: inline-block;
+        background-color: #ACD9B2;
+        border: 1px solid #ACD9B2;
+        border-radius: 5px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-style: normal;
+        letter-spacing: normal;
+        cursor: pointer;
+        transition: all 400ms;
+        &:hover {
+          background-color: #f4f4f4;
+          color: #ACD9B2;
+        }
+      }
+
+      .link {
+        color: #000;
+        text-decoration: none;
+        padding: 0 16px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .two-columns {
+    height: 40px;
+  }
+  .desc {
+    line-height: 18px;
+    height: 50px;
+  }
 }

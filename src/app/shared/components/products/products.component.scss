@@ -20,18 +20,22 @@
   }
 }
 
-// Tablets
 @media screen and (min-width: 640px) {
   .products--grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
   }
 }
 
-// Laptop and Up
+@media screen and (min-width: 768px) {
+  .products--grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .products--grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
