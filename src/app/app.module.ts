@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuicklinkModule } from 'ngx-quicklink';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +23,8 @@ import { TokenInterceptor } from "./interceptors/token.interceptor";
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    QuicklinkModule
+    QuicklinkModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TimeInterceptor, multi: true },

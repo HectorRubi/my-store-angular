@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwiperModule } from 'swiper/angular';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from "@angular/material/input";
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -35,7 +37,9 @@ import { LayoutComponent } from './components/layout/layout.component';
     WebsiteRoutingModule,
     SwiperModule,
     SharedModule,
-    QuicklinkModule
+    QuicklinkModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class WebsiteModule { }

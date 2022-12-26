@@ -19,6 +19,9 @@
         <li *ngFor="let item of categories">
           <a class="item" routerLinkActive="active" [routerLink]="['/category', item.id]">{{ item.name }}</a>
         </li>
+        <li>
+          <a *ngIf="!profile; else logoutBlock" class="login" routerLinkActive="active" routerLink="login">Login</a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -39,11 +42,8 @@
     </nav>
     <div class="info">
       <div class="account">
-        <button *ngIf="!profile; else elseBlock" (click)="login()">Login</button>
-        <ng-template #elseBlock>
-          <a routerLink="/profile">{{ profile?.email }}</a>
-          <button (click)="logout()">Logout</button>
-        </ng-template>
+        <!-- <button *ngIf="!profile; else elseBlock" (click)="login()">Login</button> -->
+        <a *ngIf="!profile; else logoutBlock" class="login" routerLinkActive="active" routerLink="login">Login</a>
       </div>
       <div class="cart">
         <a href="">
@@ -54,3 +54,8 @@
     </div>
   </div>
 </div>
+
+<ng-template #logoutBlock>
+  <a routerLink="/profile">{{ profile?.email }}</a>
+  <button (click)="logout()">Logout</button>
+</ng-template>
