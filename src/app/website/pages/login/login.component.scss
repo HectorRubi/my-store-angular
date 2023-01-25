@@ -18,14 +18,18 @@ form {
 
   .login {
     border: 1px solid #ACD9B2;
-    background-color: transparent;
+    background-color: #ACD9B2;
     padding: 16px 0;
     border-radius: 5px;
     font-size: 1em;
     margin-bottom: 20px;
     transition: all .2s;
     &:hover {
-      background-color: #ACD9B2;
+      background-color: transparent;
+    }
+    &:disabled {
+      background-color: #E4E4E4;
+      border: none;
     }
   }
   * {
