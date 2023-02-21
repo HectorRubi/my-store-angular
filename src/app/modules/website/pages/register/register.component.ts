@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { OnExit } from '../../../guards/exit.guard';
+import { OnExit } from '../../../../guards/exit.guard';
 
 @Component({
   selector: 'app-register',
